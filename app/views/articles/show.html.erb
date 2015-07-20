@@ -1,0 +1,42 @@
+<div class="span9">
+<div class="span3 well">
+	<p>
+	<p>
+	  <b>Magazine:</b>
+	  <%= @article.magazine.name %>
+	</p>
+
+	  <b>Title:</b>
+	  <%= @article.title %>
+	</p>
+
+	<p>
+	  <b>Body:</b>
+	  <%= @article.body %>
+	</p>
+
+	<p>
+	  <b>Author:</b>
+	  <%= @article.author %>
+	</p>
+
+	<%= link_to 'Edit', edit_article_path(@article) %> |
+	<%= link_to 'Back', articles_path %>
+</div>
+
+<div class="span4 well">
+<h4>Comments:</h4>
+	<% @comments.each do |comment|%>
+		<%= comment.cmmnt%>
+
+			<%= link_to "Comment", article_path(@article, for_comment: true, comment_id: comment.id), :remote => true %>
+
+			<div id="comment_<%= comment.id%>">  </div>
+
+		<br>
+	<%end%>
+
+</div>
+
+</div> 
+
